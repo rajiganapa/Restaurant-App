@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- endbuild -->
+  <title>Restaurant Info</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" >
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <script src="js/search.js" type="text/javascript">  </script>
+  <script type="text/javascript">
+      function initMap()
+      {
+        var lat1 =parseFloat(localStorage.getItem('latDet'));
+        var lng1 =parseFloat(localStorage.getItem('lngDet'));
+        console.log(lat1);
+        console.log(lng1);
+        var location={lat:lat1,lng:lng1};
+        var map=new google.maps.Map(document.getElementById("map"),
+        {
+          zoom:4,
+          center:location
+        });
+        var marker=new google.maps.Marker({
+          position:location,
+          map:map
+        });
+      }
+      // $(function () {
+      //   console.log("dfsdfdsf");
+      //     $("#submit_review_btn").click(function () {
+      //         var revName = $("#reviewName").val();
+      //         if (revName == " ") {
+      //             $("form").submit();
+      //         }
+      //     })
+      // })
+
+
+    </script>
+
+
+</head>
+
+<body class="inside">
+  <header>
+    <div id=navbar>
+    <a href="../welcomepage/welcome.html"><h1>FOODIES</h1></a>
+    </div>
+  </header>
+  <section id="map-container" role="application" aria-label="Google Map">
+    <div id="map"></div>
+  </section>
+    <section id="reviews-container" aria-label="Reviews">
+      <div id="recipeDet">
+      </div>
+      <table id="restaurant-hours">
+        <h3 id="hour">Hours of Operation</h3>
+        <tr><td>Monday</td><td>5:30 pm - 11:00 pm</td>
+        </tr><tr><td>Tuesday</td>
+          <td>5:30 pm - 11:00 pm</td></tr>
+          <tr><td>Wednesday</td>
+            <td>5:30 pm - 11:00 pm</td>
+          </tr><tr><td>Thursday</td>
+            <td>5:30 pm - 11:00 pm</td></tr>
+            <tr><td>Friday</td><td>5:30 pm - 11:00 pm</td></tr>
+            <tr><td>Saturday</td>
+              <td>12:00 pm - 4:00 pm, 5:30 pm - 12:00 am</td></tr>
+              <tr><td>Sunday</td><td>12:00 pm - 4:00 pm, 5:30 pm - 11:00 pm</td></tr>
+            </table>
+            <div id="photos">
+            <h2 id="relatedPhotos">Popular Dishes</h2>
+                <div style="display:flex">
+                    <div style="flex:1">
+                    <img src ="img/test-10.jpg" alt="foodie" height="150" width="250">
+                      </div>
+                      <div style="flex:1">
+                      <img src ="img/test-1.jpg" alt="foodie" height="150" width="250">
+                        </div>
+                  <div style="flex:1">
+                    <img src ="img/test-9.jpg" alt="foodie" height="150" width="250">
+                      </div>
+                      <div style="flex:1">
+                        <img src="img/test-5.jpg" alt="foodie" height="150" width="250">
+                        </div>
+                        <div style="flex:1">
+                          <img src="img/test-6.jpg" alt="foodie" height="150" width="250">
+                          </div>
+                        </div>
+                        </div>
+      <ul id="reviews-list"></ul>
+    </section>
+    <div class="container" id="result-container">
+    <h2>Reviews</h2>
+    <!-- Trigger the modal with a button -->
+    <button type="button" class="btn btn-info btn-lg" id="#myModal"data-toggle="modal" data-target="#myModal">
+      <span id="popup">Add Review</span></button>
+  <!-- result storage division -->
+  <div id="result">
+    <div class="result_list">
+      <p>User: Rizwan</p>
+      <p>Rating: 4</p>
+      <p>Feedback: Nice</p>
+    </div>
+  </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="add-review-header">Reviews</h4>
+          </div>
+          <!--form role="form" id="review_form" method="post"-->
+            <form id="review_form">
+            <div class="form-group">
+
+              <label for="reviewName" class="flabel">Name</label>
+              <input type="text" class="form-control" name="reviewName" id="reviewName" required>
+
+          </div>
+          <div class="form-group">
+
+              <label class="flabel">Rating</label>
+              <div class="rate"id="reviewStars">
+                <input type="radio" id="star5" name="rate" value="5" onkeydown="navRadioGroup(event)" required maxlength="50"/>
+                <label for="star5" title="5 stars">5 stars</label>
+                <input type="radio" id="star4" name="rate" value="4" onkeydown="navRadioGroup(event)" />
+                <label for="star4" title="4 stars">4 stars</label>
+                <input type="radio" id="star3" name="rate" value="3" onkeydown="navRadioGroup(event)" />
+                <label for="star3" title="3 stars">3 stars</label>
+                <input type="radio" id="star2" name="rate" value="2" onkeydown="navRadioGroup(event)" />
+                <label for="star2" title="2 stars">2 stars</label>
+                <input type="radio" id="star1" name="rate" value="1" onkeydown="navRadioGroup(event)"  />
+                <label for="star1" title="1 star">1 star</label>
+
+            </div>
+          </div>
+          <div class="form-group">
+
+              <label for="reviewComments" class="flabel">Feedback</label>
+              <textarea name="reviewComments" class="form-control" id="reviewComments" cols="20" rows="5" required></textarea>
+
+          </div>
+
+
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success" id="submit_review_btn">save</button>
+            <button type="button" class="btn btn-danger"id="buttonCloseID" data-dismiss="modal">Close</button>
+          </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+<!-- onclick="save()" -->
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbrMqE7joxwKIYK-k2Epi0qUzk5BmdUcs&libraries=places&callback=initMap"></script>
+    <footer id="footer" role="contentinfo">
+      Copyright (c) 2017 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
+    </footer>
+
+
+<!--
+<script type="text/javascript">
+  var aku =localStorage.getItem('addressDet');
+  console.log(aku);
+</script> -->
+</body>
+
+
+</html>

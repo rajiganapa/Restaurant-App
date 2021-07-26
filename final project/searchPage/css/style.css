@@ -1,0 +1,348 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+
+#navbar {
+  background-color: white;
+  height: 40px;
+  width: 100%;
+  z-index: 2;
+}
+
+#navbar h1{
+  text-align: center;
+  font-family: Righteous;
+  margin: auto;
+  color: #ffbe0a;
+}
+
+#navbar a:link{
+  text-decoration: none;
+}
+
+#reviews-container{
+  width: 50%;
+  display: inline-block;
+  float: left;
+}
+
+#result-container{
+  width: 50%;
+  display: inline-block;
+  float: right;
+}
+
+#result-container h2{
+  font-family: Righteous;
+}
+
+.show {
+  visibility: visible;
+  opacity: 1;
+}
+.modal-overlay {
+  width: 100%;
+  height: 100%;
+  z-index: 2; /* places the modalOverlay between the main page and the modal dialog */
+  background-color: #000;
+  opacity: 0;
+  transition: all .3s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  margin: 0;
+  padding: 0;
+}
+.modal-overlay.show {
+  display: block;
+  opacity: 0.5;
+}
+.modal .close-btn {
+  align-self: flex-end;
+  font-size: 1.4em;
+  margin: 8px 8px 0;
+  padding: 0 8px;
+  cursor: pointer;
+}
+form {
+  max-width: 900px;
+  padding: 0 20px 20px 20px;
+
+}
+input,
+select,
+.rate,
+textarea {
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: inset 0 1px 1px #e1e1e1;
+  font-size: 16px;
+  padding: 8px;
+}
+.static-rate {
+  /* border: 1px solid #ccc; */
+  border-radius: 8px;
+  /* padding: 8px; */
+  padding: 10px;
+}
+input[type="radio"] {
+  box-shadow: none;
+}
+button {
+  background: #f9f9f9;
+  border-radius: 8px;
+  font-size: 16px;
+  padding: 8px;
+  min-width: 48px;
+  min-height: 48px;
+}
+button:hover{
+  background-color: #fff;
+  border: 1px solid #aaa;
+}
+button:active {
+  border-style: ridge;
+}
+button#review-add-btn,
+button.close-btn,
+button#submit_review_btn {
+
+}
+button#submit_review_btn {
+  cursor: pointer;
+  padding: 0 16px;
+}
+
+.fieldset {
+  margin-top: 20px;
+}
+.right {
+  align-self: flex-end;
+}
+
+
+
+#review_form {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+#review_form label, #review_form input {
+  display: block;
+}
+#review_form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+/* .fieldset
+{
+
+  margin-right: 20px;
+  margin-left: 10px;
+} */
+#review_form .rate label, #review_form .rate input,
+#review_form .rate1 label, #review_form .rate1 input {
+  display: inline-block;
+}
+/* Modified from: https://codepen.io/tammykimkim/pen/yegZRw */
+
+.add-review-header{
+  font-family: Righteous;
+  text-align: center;
+  font-size: 35px;
+  color: #ffbe0a;
+  margin-left: 20px;
+}
+
+.flabel{
+  font-family: Righteous;
+  font-size: 20px;
+}
+
+.rate {
+  height: 36px;
+  display: inline-flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+.static-rate {
+  height: 36px;
+  display: inline-flex;
+  /* flex-direction: row-reverse; */
+  /* align-items: flex-start; */
+  /* justify-content: flex-end; */
+}
+/* #review_form .rate > label { */
+.rate > label, .static-rate > label {
+  margin-bottom: 0;
+  margin-top: -5px;
+  height: 30px;
+}
+.rate:not(:checked) > input {
+  top: -9999px;
+  margin-left: -24px;
+  width: 20px;
+  padding-right: 14px;
+  z-index: -10;
+}
+.rate:not(:checked) > label {
+  float:right;
+  width:1em;
+  overflow:hidden;
+  white-space:nowrap;
+  cursor:pointer;
+  font-size:30px;
+  color:#ccc;
+}
+.static-rate > label {
+  float:right;
+  width:1em;
+  overflow:hidden;
+  white-space:nowrap;
+  font-size:30px;
+  color:#ccc;
+}
+.rate:not(:checked) > label::before, .static-rate > label::before {
+  content: '★ ';
+  position: relative;
+  top: -10px;
+  left: 2px;
+}
+.rate > input:checked ~ label, .static-rate > label.gold {
+  color: #ffc700;
+}
+.rate > input:checked:focus + label, .rate > input:focus + label {
+  outline: -webkit-focus-ring-color auto 5px;
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+  color: #deb217;
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+  color: #c59b08;
+}
+#submit_review_btn,#buttonCloseID {
+  align-self: flex-end;
+  border-radius: 25px;
+  width: 150px;
+  font-family: Righteous;
+  font-size: 20px;
+
+}
+
+.result_list
+{
+  /* display: inline-block;
+  padding: 12px 40px;
+    list-style: none;
+    border: 1px solid;
+  margin: 1px 1px 1px 1px;
+  text-align: center; */
+  margin-top: 50px;
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: inset 0 1px 1px #e1e1e1;
+  font-size: 16px;
+  padding: 8px;
+}
+#map{
+  height:350px;
+  /* width:1000px; */
+  background-color: #ccc;
+
+}
+#map-container {
+  width: 100%;
+}
+
+
+#footer{
+  margin-top: 67%;
+
+  background-color: #444;
+   color: #ccc;
+   letter-spacing: 1px;
+   padding: 16px;
+   text-align: center;
+   text-transform: uppercase;
+
+}
+
+table
+{
+    margin: 10px 50px;
+    padding:50 50 50 50px;
+}
+h3
+{
+  margin: 10px 50px;
+  padding:50 50 50 50px;
+}
+#restaurant-hours td {
+  color: #666;
+
+}
+#restaurant-hours td:first-child {
+  font-weight: bold;
+  vertical-align: top;
+}
+.recipeDet__list p {
+  margin: 10px 0px;
+  font-weight: bold;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 16px;
+}
+#photos
+{
+  margin: 10px 50px;
+  padding:50 50 50 50px;
+  margin-bottom: 0;
+}
+.results_name
+{
+  color:#8b0000;
+}
+.results_address
+{
+  font-style: italic;
+  color:blue;
+}
+#hour
+{
+  color:#8b0000;
+}
+
+#relatedPhotos
+{
+    color:#8b0000;
+}
+li
+{
+  color:white;
+}
+.error {
+    background: #FFCDD2 url(error.png) no-repeat 98% center;
+    box-shadow: 0 0 5px #FF5252;
+    border-color: #FF1744;
+}
+#submit_review_btn:hover{
+    background-color: #228B22 !important;
+    border-color: #228B22 !important;
+    background-image: none !important;
+    border: 0 !important;
+}
+#buttonCloseID:hover{
+    background-color: #DC143C !important;
+    border-color: #DC143C !important;
+    background-image: none !important;
+    border: 0 !important;
+}

@@ -1,0 +1,104 @@
+@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+body
+{
+
+  margin:0;
+  padding:0;
+  font-family: sans-serif;
+  background: url(img/bc4.jpeg) no-repeat;
+  background-size: cover;
+  backdrop-filter:blur(2px);
+}
+#main-text {
+  background-color: white;
+}
+#main-text h1{
+  font-size: 55px;
+  font-family: Righteous;
+  color: #ffbe0a;
+  text-align: center;
+  backdrop-filter:opacity(80%);
+}
+
+a{
+  text-decoration: none;
+}
+
+.signup-section
+{
+  width: 320px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  color: #ffbe0a;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 5px 5px 30px black;
+
+}
+.signup-section h1
+{
+  text-align: center;
+  font-size: 25px;
+  border-bottom: 2px solid #ffbe0a;
+  margin-bottom: 50px;
+  padding:13px;
+}
+#textbox
+{
+  width:100%;
+  overflow:hidden;
+  font-size: 20px;
+  padding:8px 0;
+  margin:8px 0;
+  border-bottom: 1px solid #ffbe0a;
+}
+#textbox i{
+  width:25px;
+  float:left;
+  text-align: center;
+}
+#textbox input {
+  border: none;
+  outline: none;
+  background:none;
+  color:Black;
+  font-size:15px;
+  width:80%;
+  float:left;
+  margin: 0 10px;
+}
+.btn
+{
+  border-radius: 25px;
+  width:50%;
+  background: #ffbe0a;
+  border:2px solid #ffbe0a;
+  color: white;
+  padding:5px;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 25%;
+  margin-top: 30px;
+
+
+}
+
+#login {
+  text-align: center;
+}
+
+#already-login{
+  text-decoration: none;
+  color: #ffbe0a;
+}
+
+#already-login:hover{
+  text-decoration: underline;
+}
+.btn:hover
+{
+  background: #e67e22;
+}

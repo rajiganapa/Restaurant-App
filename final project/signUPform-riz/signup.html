@@ -1,0 +1,68 @@
+<DOCTYPE html>
+  <html lang="en">
+    <head>
+      <link rel="stylesheet" type="text/css" href="css/styles.css" />
+      <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600,300' rel='stylesheet' type='text/css'> -->
+      <title>Sign Up</title>
+    </head>
+    <body>
+      <div id="main-text">
+        <a href="../homepage/homepage.html"><h1>FOODIES</h1></a>
+      </div>
+      <div class="signup-section">
+        <form id="loginForm" action="../welcomepage/welcome.html" method="post">
+        <h1>Sign Up</h1>
+        <div id="textbox">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <input type="text" required placeholder="Username"id="username" name="user" value="" />
+        </div>
+        <div id="textbox">
+          <i class="fa fa-envelope" aria-hidden="true"></i>
+          <input type="text" required placeholder="Email address"id="email" name="user" value="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address."/>
+        </div>
+        <div id="textbox">
+          <!-- <i class="fas fa-atom"></i>  -->
+          <i class="fa fa-lock" aria-hidden="true"></i>
+          <input type="password" placeholder="Password" name="secretCode" value="" id="p1" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" title="Please include at least 1 uppercase character, 1 lowercase character, and 1 number." required/>
+        </div>
+        <div id="textbox">
+          <!-- <i class="fas fa-atom"></i>  -->
+          <i class="fa fa-lock" aria-hidden="true"></i>
+          <input type="password" placeholder=" Re-enter Password" name="secretCode" value="" id="p2" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" title="Please include at least 1 uppercase character, 1 lowercase character, and 1 number." required/>
+        </div>
+        <input class="btn" type="submit"name="" value="Sign in" />
+      </form>
+      <div id="already"><p id="login">Already have an account? <a href="../Loginform-riz/login.html" id="already-login">Log in</a></p></div>
+      </div>
+      <script>
+          // document.getElementById('loginForm').addEventListener(
+          //   "submit",function(e)
+          //   {
+          //     var loginValue=document.getElementById("username").value;
+          //     if(loginValue==null||loginValue=="")
+          //     {
+          //       e.preventDefault();
+          //       alert("You must enter a valid username");
+          //     }
+          //   }
+          // );
+
+          document.getElementById('loginForm').addEventListener(
+            "submit",function(e)
+            {
+          var pass1 = document.getElementById("p1").value;
+          var pass2 = document.getElementById("p2").value;
+          if(pass1 != pass2){
+            e.preventDefault();
+            alert("Passwords do not match.");
+            return false;
+          }
+          }
+        );
+      </script>
+
+
+
+
+    </body>
+  </html>
